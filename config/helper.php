@@ -33,7 +33,7 @@ class helper
             $urlWithoutExtension = self::explodeAndReturnPageNameWithoutExtension($url);
             // this was otimized by removing the || check, and checking just the name without the extension 
             if(($urlWithoutExtension === "mentions-legales")) break;
-            $active = 'current-menu-item current_page_item menu-item-home';
+            $active = '';
             if ($currentPage === $urlWithoutExtension) {
                 // Change according to csrequired css class
                 $active = 'active';
@@ -42,9 +42,9 @@ class helper
                 @self::generateSubMenu($value, $active, $url);
             } else {
                 if (strtolower($value['title']) === 'contact') {
-                    echo "<li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-5861 $active'><a class='' href='$url'>" . $value['title'] . "</a></li>";
+                    echo "<li class='$active'><a class='' href='$url'>" . $value['title'] . "</a></li>";
                 } else {
-                    echo "<li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-5861 $active'><a class='' href='$url'>" . $value['title'] . "</a></li>";
+                    echo "<li class='$active'><a class='' href='$url'>" . $value['title'] . "</a></li>";
                 }
             }
           }
@@ -59,29 +59,30 @@ class helper
         (new helper)->parseFile();
         $currentPage = self::explodeAndReturnPageNameWithoutExtension(basename($_SERVER['PHP_SELF']));
         echo "<meta name=\"keywords\" content=\"" . self::$infos['keywords'] ."\">\n\t";
+        // echo "<pre>"; // TODO: remove this after debbuging!
         foreach (self::$pages as $url => $value) {
             $url = self::explodeAndReturnPageNameWithoutExtension($url);
-            // this is used to generate the title in case of a sub page
-            // if (array_key_exists('sub-pages', $value)) {
-            //     foreach ($value['sub-pages'] as $subURL => $subValue) {
-            //         if ($subURL === $currentPage) {
-            //             self::regularTitle($value);
-            //             break;
-            //         }
-            //     }
-            //     break;
-            // }
-
             if ($currentPage === 'index' || $currentPage === 'accueil') {
                 self::indextitle($value);
                 break;
             } else {
-                if ($url === $currentPage) {
+                if (array_key_exists('sub-pages', $value)) {
+                    // if yes then just render the sub-page title
+                    foreach ($value['sub-pages'] as $subURL => $subValue) {
+                        $subURL = self::explodeAndReturnPageNameWithoutExtension($subURL);
+                        if ($subURL === $currentPage) {
+                            self::regularTitle($subValue);
+                            break;
+                        }
+                    }
+                } else if($url === $currentPage) {
+                    // this is always reached!
                     self::regularTitle($value);
                     break;
                 }
             }
         }
+
     }
  
 
@@ -102,8 +103,8 @@ class helper
      * @param array the array holding the sub menus
     */
     private function generateSubMenu($array, $active, $url) {
-        $longText = "<li class=\"$active\"><a class='' href=".$url.">". $array['title'] ."</a>
-                <ul class=\"submenu\">";
+        $longText = "<li class=\"menu-item-has-children $active\"><a class='' href=".$url.">". $array['title'] ."</a>
+                <ul class=\"sub-menu\">";
         
         foreach ($array['sub-pages'] as $href => $values) { 
             $longText .= "<li class=\"\"><a class='' href=". $href .">" . $values['title'] . "</a></li>";
@@ -146,7 +147,7 @@ class helper
     } 
 
     public static function getFullAddress () {
-        return self::$infos['address'] . ', ' . self::$infos['zipcode'] . ', ' . self::$infos['city'] . ', France';
+        return self::$infos['address'] . ', ' . self::$infos['zipcode'] . ', ' . self::$infos['city'];
     }
 
 
