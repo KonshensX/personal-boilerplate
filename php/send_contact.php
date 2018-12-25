@@ -38,7 +38,7 @@ if (isset($_POST['email']) &&
     $mail = new Zend_Mail();
     $mail->setBodyHtml(ReplaceSpecialChar($bodyHtmlTEXT));
     $mail->setFrom($_POST["email"], $_POST["nom"] . $_POST["prenom"]);
-    $mail->addTo('lorestmabeaute@gmail.com', 'L\'Or Est Ma Beauté');
+    $mail->addTo('', '');
     $mail->setSubject("{$_POST["msg_subject"]}");
     @$mail->send();
 

@@ -40,12 +40,12 @@ require_once('partials/header.php');
 				Tél&nbsp;: <?= helper::get('phone') ?><br>
 				Siret : 
 				<p></p>
-				<p>Site réalisé et hébergé par wewebCom<br>
-					Siège social : 20 Rue d'Issy 92100 Boulogne Billancourt‬<br>
-					Tél. : 01 40 84 90 32‬<br>
-					Siret : 818 796 856 00016<br>
-					TVA intracommunautaire : FR22818796856</p>
-				<p></p>
+				<p>
+					Site réalisé et hébergé par <strong>IACOM SARL</strong> au capital de 25000€ <br> 
+					Siège social : 40 rue de la Gare 94110 ARCUEIL  <br> 
+					Tél. : 09 70 44 55 45  <br> 
+					RCS Créteil n°833 291 248 
+				</p>
 				<h2>Propriété intellectuelle :</h2><br>
 				L’ensemble de ce site relève des législations Françaises et Internationales sur les droits d’auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés pour les textes et les photographies de ce site. La reproduction de tout ou partie de ce site sur un support électronique ou autre quel qu’il soit, est formellement interdite sauf autorisation écrite de l’auteur, conformément à l’article L 122-4 du Code de la Propriété intellectuelle.
 				<p></p>
@@ -64,10 +64,6 @@ require_once('partials/header.php');
 				<p></p>
 				<h2>Politique de confidentialité :</h2><br>
 				En aucun cas, les données recueillies sur le site www. ne seront cédées ou vendues à des tiers. Aucune adresse email ne sera transmise à des tiers y compris à nos partenaires sauf avec l’accord écrit des intéressés.
-				<p></p>
-				<p></p>
-				<h2>Partenaires :</h2><br>
-				L’ensemble de nos partenaires visibles sur la page partenaires ont un droit de modification de leur information en effectuant la demande à technique@wewebcom.fr
 				<p></p>
 			</div>				
 		</div>

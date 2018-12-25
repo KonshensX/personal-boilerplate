@@ -1,10 +1,10 @@
 infos:
-    name: ZINGUERIE PROVENCALE
-    address: 110 rue de la Tuilerie  
-    zipcode: "13290"
-    city: AIX EN PROVENCE
-    phone: 06 69 69 55 56
-    email: zinguerieprovencale@orange.fr
+    name: 
+    address: 
+    zipcode: 
+    city: 
+    phone: 
+    email: 
     keywords: 
 pages:
     index.html:
@@ -12,7 +12,7 @@ pages:
         description:  
     mentions-legales.html:
         title: Mentions Légales
-        description: Mentions Légales - ZINGUERIE PROVENCALE
+        description: Mentions Légales - 
     plan.html:
         title: Plan du site
-        description: Plan du site - ZINGUERIE PROVENCALE
+        description: Plan du site - 

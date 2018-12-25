@@ -1,0 +1,14 @@
+{
+    "name": "user/personal-boilerplate",
+    "description": "Basic boilerplate to use for static apps using php 5.4",
+    "authors": [
+        {
+            "name": "Mohammed BAZA",
+            "email": "mohamedbaza16@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/yaml": "2.8.*"
+    }
+}
